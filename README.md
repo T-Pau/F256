@@ -1,4 +1,4 @@
-# Foenix F256 example programs
+# Foenix F256 Example Programs
 
 This repository contains some example programs and utility functions for the [Foenix F256](https://c256foenix.com/) retro computer.
 
