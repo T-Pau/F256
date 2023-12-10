@@ -1,0 +1,21 @@
+XLR8 = xlr8
+
+rule library
+  command = $XLR8 --target $target --create-library --depfile $out.d -o $out $in $libs
+  depfile = $out.d
+
+rule link
+  command = $XLR8 --target $target --symbol-map $out.sym --depfile $out.d -o $out $in $libs
+  depfile = $out.d
+
+target = f256
+
+build util.lib: library console.s
+  libs = f256.lib
+
+build hello-world.pgz: link hello-world.s util.lib
+build events.pgz: link events.s util.lib
+ libs = f256-microkernel.lib f256.lib
+build about.pgz: link about.s util.lib
+
+default hello-world.pgz events.pgz about.pgz
