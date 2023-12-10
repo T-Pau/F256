@@ -1,0 +1,5 @@
+*.sym
+*.d
+*.pgz
+*.lib
+/.ninja_log

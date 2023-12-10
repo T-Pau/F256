@@ -10,12 +10,13 @@ rule link
 
 target = f256
 
-build util.lib: library console.s
+build util.lib: library console.s hex.s
   libs = f256.lib
 
 build hello-world.pgz: link hello-world.s util.lib
 build events.pgz: link events.s util.lib
- libs = f256-microkernel.lib f256.lib
+  libs = f256-microkernel.lib f256.lib
 build about.pgz: link about.s util.lib
+  libs = f256.lib
 
 default hello-world.pgz events.pgz about.pgz
